@@ -39,6 +39,11 @@ app.get("/", (req, res) => {
   res.send("hello from the server");
 });
 
+// This is the route called when the user hits the login button
+// Select the user with the given username and return the row.
+// return res.json(results) returns an array of rows matching the where
+// clause. Take res[0] ath the client side to get the object
+// container username , password and name.
 app.get("/user", (req, res) => {
   const { User_name } = req.query;
   connection.query(

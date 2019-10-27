@@ -1,113 +1,52 @@
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-<head>
+  <body>
+    <h1>Crime Records Management System</h1>
 
-      <link rel="stylesheet" type="text/css" href="style.css">
+    <p>
+      <i>
+        - The Crime Records Management System specifically looks into the <br />
+        subject crime prevention,detection,conviction of criminals depending
+        <br />
+        on a highly responsive backbone of Information Management. The <br />
+        efficiency of the Police and the effectiveness with which it tackles
+        <br />
+        crime depend on what quality of information it can derive from<br />
+        its existing records and how fast it can have access to it.
+      </i>
+    </p>
 
-      <script type="text/javascript">
+    <p2><a href="complaint.html"> Complaint Registration Link </a> </p2>
 
- 
-
-               function validate() {
-
-                               var username = document.getElementById("uname");
-
-                               var password = document.getElementById("pass");
-
-                               if(username.value =="" || password.value=="")
-
-                               {
-
-                                               alert("No blank values allowed");
-
-                                               return false;
-
-                               }
-
-                               else {
-
-
-								fetch(`http://localhost:4000/user?User_name="${username.value}"`)
-    .then(res => res.json())
-    .then(res => {
-        var passwordEnteredByUser=username.value;
-        console.log(res[0]);
-        if(passwordEnteredByUser == res[0].Password) {
-            alert('NICE');
-        } else {
-            // say wrong credentials
-        }
-    })
-    .catch(err => {
-        console.log(err);
-    });
-
-                               }
-
-               }
-
-      </script>
-
-                  </head>
-
- 
-
- 
-
-<body>    
-
-<h1> Crime Records Management System </h1>
-
-<p> <i> - The Crime Records Management System specifically looks into the <br> subject crime prevention,detection,conviction of criminals depending <br> on a highly responsive backbone of Information Management. The <br> efficiency of the Police and the effectiveness with which it tackles <br> crime depend on what quality of information it can derive from<br> its existing records and how fast it can have access to it. </i> </p>
-
- 
-
-<p2><a href="complaint.html"> Complaint Registration Link </a> </p2>
-
-<header>
-
-     <div class="main">
-
+    <header>
+      <div class="main">
         <ul>
+          <li class="active"><a href="#">Home</a></li>
 
-                                                <li class="active"><a href="#">Home</a></li>
+          <li><a href="laws.html">Laws</a></li>
 
-                                                <li><a href="laws.html">Laws</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
 
-                                                <li><a href="contact.html">Contact</a></li>
+      <div class="login-box">
+        <h2>Login</h2>
 
-                                                </div>
+        <form id="login-form">
+          <input id="uname" placeholder="Username" type="text"/ ><br /><br />
 
-                                                <div class="login-box">
+          <input id="pass" placeholder="Password" type="password"/ ><br /><br />
 
-                                                <h2>Login</h2>
-
-                                                <form onsubmit="validate()" >
-
-                                                <input id="uname" placeholder="Username" type="text"/ ><br><br>
-
- 
-
-                                                <input id="pass" placeholder="Password" type="password"/ ><br><br>
-
-                               
-
-                                                <button type="login"> Login </button>
-
-            </form>
-
-</div>
-
- 
-
-                                                </header>
-												<script src="app.js"></script>
-                                                </body>
-
+          <button type="login">Login</button>
+        </form>
+      </div>
+    </header>
+    <!-- Link the js file to the html -->
+    <script src="app.js"></script>
+  </body>
 </html>
-
- 
- 
