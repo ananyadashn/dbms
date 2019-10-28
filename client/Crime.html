@@ -6,6 +6,19 @@
   </head>
 
   <body>
+    <header>
+      <div class="main">
+        <ul>
+          <li class="active"><a href="#">Home</a></li>
+
+          <li><a href="laws.html">Laws</a></li>
+
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+    <br />
+    <br />
     <h1>Crime Records Management System</h1>
 
     <p>
@@ -23,29 +36,18 @@
 
     <p2><a href="complaint.html"> Complaint Registration Link </a> </p2>
 
-    <header>
-      <div class="main">
-        <ul>
-          <li class="active"><a href="#">Home</a></li>
+    <div class="login-box">
+      <h2>Login</h2>
 
-          <li><a href="laws.html">Laws</a></li>
+      <form id="login-form">
+        <input id="uname" placeholder="Username" type="text" /><br /><br />
 
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+        <input id="pass" placeholder="Password" type="password" /><br /><br />
 
-      <div class="login-box">
-        <h2>Login</h2>
+        <button type="login">Login</button>
+      </form>
+    </div>
 
-        <form id="login-form">
-          <input id="uname" placeholder="Username" type="text"/ ><br /><br />
-
-          <input id="pass" placeholder="Password" type="password"/ ><br /><br />
-
-          <button type="login">Login</button>
-        </form>
-      </div>
-    </header>
     <!-- Link the js file to the html -->
     <script src="app.js"></script>
   </body>

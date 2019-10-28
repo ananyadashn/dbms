@@ -20,55 +20,106 @@
                     <div class="card">
                         <div class="card-header">Register an FIR</div>
                         <div class="card-body">
-                            <form name="my-form" onsubmit="return validform()" action="success.php" method="">
-                                <div class="form-group row">
+                            <form name="my-form" id="register-form">
+
+
+                               <div class="form-group row">
                                     <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="full_name" class="form-control" name="full-name">
+                                        <input type="text" id="fname" class="form-control" name="full-name">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email_address" class="form-control" name="email-address">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="user_name" class="col-md-4 col-form-label text-md-right">User Name</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="user_name" class="form-control" name="username">
+                                        <input type="text" id="email" class="form-control" name="email-address">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="phone_number" class="form-control">
+                                        <input type="text" id="pno" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="present_address" class="col-md-4 col-form-label text-md-right">Present Address</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="present_address" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Description</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="description" class="form-control" name="description">
+                                        <input type="text" id="padd" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="add_number" class="col-md-4 col-form-label text-md-right"><abbr
-                                                title="Adhar Card">Adhar Card No</abbr> Number</label>
+                                                title="Adhar Card">Aadhar Card No</abbr> </label>
                                     <div class="col-md-6">
-                                        <input type="text" id="add_number" class="form-control" name="add-number">
+                                        <input type="text" id="addno" class="form-control" name="add-number">
                                     </div>
+                                </div>
+                                <div class="form-group row">
+                                <label for="Date" class="col-md-4 col-form-label text-md-right"><abbr title="Date">Date</abbr>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="date" class="form-control" name="date">
+                                </div>
+                            </div>
+                                <div class="form-group row">
+                                <label for="time" class="col-md-4 col-form-label text-md-right"><abbr title="Time">Time</abbr>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="time" class="form-control" name="time">
+                                </div>
+                                </div>
+
+                                <div class="form-group row">
+                                <label for="station_no" class="col-md-4 col-form-label text-md-right"><abbr title="Station Number">Station Number</abbr>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="statno" class="form-control" name="station-number">
+                                </div>
+                                </div>
+
+                                <div class="form-group row">
+                                <label for="nature_of_crime" class="col-md-4 col-form-label text-md-right"><abbr title="Nature_of_crime">Nature of Crime </abbr>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="nature_of_crime" class="form-control" name="nature_of_crime">
+                                </div>
+                                </div>
+
+                                <div class="form-group row">
+                                <label for="suspect_name" class="col-md-4 col-form-label text-md-right"><abbr title="Suspect Number">Suspect Name</abbr>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="susno" class="form-control" name="susno">
+                                </div>
+                                </div>
+
+                                <div class="form-group row">
+                                <label for="suspect_descripton" class="col-md-4 col-form-label text-md-right"><abbr title="Suspect Descripton">suspect Descripton</abbr>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="suspect_descripton" class="form-control" name="suspect_descripton">
+                                </div>
+                                </div>
+
+                                <div class="form-group row">
+                                <label for="location" class="col-md-4 col-form-label text-md-right"><abbr title="Location">Location</abbr>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="loc" class="form-control" name="loc">
+                                </div>
+                                </div>
+
+                                <div class="form-group row">
+                                <label for="crime_location" class="col-md-4 col-form-label text-md-right"><abbr title="Crime_location">Crime location</abbr>
+                                </label>
+                                <div class="col-md-6">
+                                    <input type="text" id="cloc" class="form-control" name="cloc">
+                                </div>
+                                </div>
                                 </div>
 
                                     <div class="col-md-6 offset-md-4">
@@ -83,5 +134,6 @@
             </div>
         </div>
     </div>
+    <script src="complaint.js"></script>
 </body>
 </html>
