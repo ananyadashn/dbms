@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 app.get("/user", (req, res) => {
   const { User_name } = req.query;
   connection.query(
-    `SELECT * FROM Inspector_Info WHERE User_name=${User_name}`,
+    `SELECT * FROM Inspector_Info WHERE User_Name=${User_name}`,
     (err, results) => {
       if (err) {
         return res.send(err);
@@ -59,9 +59,22 @@ app.get("/user", (req, res) => {
 });
 
 app.get("/complaint", (req, res) => {
-  const { fname, email, uname, pno, padd, addno } = req.query;
+  const { fname, email, pno, padd, addno } = req.query;
   connection.query(
     `insert into Citizen values("${fname}" , "${pno}" , "${email}" , "${padd}" , "${addno}")`,
+    (err, results) => {
+      if (err) {
+        return res.send(err);
+      } else {
+        return res.json(results);
+      }
+    }
+  );
+});
+app.get("/complaint1", (req, res) => {
+  const { date, time, statno, n_o_c, susnm, susdes, loc } = req.query;
+  connection.query(
+    `insert into Crime values ("${date}" , "${time}" , "${statno}" , "${n_o_c}" , "${susnm}" , "${susdes}" , "${loc}")`,
     (err, results) => {
       if (err) {
         return res.send(err);
