@@ -7,8 +7,8 @@ const app = express();
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "qwer123QWER@",
-  database: "db2",
+  password: "Password@123",
+  database: "db3",
   multipleStatements: true,
   insecureAuth: true
 });
@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 app.get("/user", (req, res) => {
   const { User_name } = req.query;
   connection.query(
-    `SELECT * FROM Inspector_Info WHERE User_Name=${User_name}`,
+    `SELECT * FROM Police_Officer WHERE Police_id=${User_name}`,
     (err, results) => {
       if (err) {
         return res.send(err);
@@ -87,16 +87,13 @@ app.get("/complaint1", (req, res) => {
 
 app.get("/new", (req, res) => {
   const {} = req.query;
-  connection.query(
-    `select * from criminal`,
-    (err, results) => {
-      if (err) {
-        return res.send(err);
-      } else {
-        return res.json(results);
-      }
+  connection.query(`select * from criminal`, (err, results) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.json(results);
     }
-  );
+  });
 });
 
 app.listen(4000, () => {

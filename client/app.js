@@ -21,7 +21,7 @@ loginForm.addEventListener("submit", e => {
         // by the user
         if (passwordEnteredByUser == res[0].Password) {
           alert("Login successful");
-          window.location.href = "complaint1.html";
+          //window.location.href = "complaint1.html";
         } else {
           alert("wrong credentials");
         }
