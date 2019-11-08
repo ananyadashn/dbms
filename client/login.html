@@ -1,44 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <link rel="stylesheet" href="./css/login.css">
-</head>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
 
-<body>
-    <div class="login-heading">
-        LOGIN
+  <body>
+   
+
+    <div class="login-box">
+      <h>Login</h>
+
+      <form id="login-form">
+        <input id="uname" placeholder="Username" type="text" /><br /><br />
+
+        <input id="pass" placeholder="Password" type="password" /><br /><br />
+
+        <button type="login">Login</button>
+      </form>
     </div>
-    <div class="login-form-container">
-        <div class="row ">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="name" type="text" class="validate">
-                        <label class="active" for="name">Name</label>
-                    </div>
 
-                </div>
+    <!-- Link the js file to the html -->
+    <script >
+      const loginForm = document.getElementById("login-form");
+loginForm.addEventListener("submit", e => {
+  e.preventDefault();
+  var username = document.getElementById("uname");
+  var password = document.getElementById("pass");
+  if (username.value == "" || password.value == "") {
+    alert("No blank values allowed");
+  } else {
+    // Send the reuqest to the server thorugh "/user"
+    // with query parameter User_name which contains
+    // what the user has entered.
+    fetch(`http://localhost:4000/user?User_name="${username.value}"`)
+      .then(res => res.json())
+      .then(res => {
+        var passwordEnteredByUser = password.value;
+        console.log(res[0]);
+        // res[0] is an object containing the values
+        // Username , Password , Name
+        // Check if the password returned
+        // by the server matches the one entered
+        // by the user
+        if (passwordEnteredByUser == res[0].Password) {
+          alert("Login correct");
+          window.location.href = "criminal.html";
+        } else {
+          alert("wrong credentials");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+});
 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label class="active" for="password">Password</label>
-                    </div>
-                </div>
-
-                <button id="login-submit-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                        <i class="material-icons right">></i>
-                </button>
-
-            </form>
-        </div>
-    </div>
-    <script src="./js/login.js"></script>
-</body>
-
+    </script>
+  </body>
 </html>

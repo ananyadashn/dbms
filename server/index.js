@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 app.get("/user", (req, res) => {
   const { User_name } = req.query;
   connection.query(
-    `SELECT * FROM Police_Officer WHERE Police_id=${User_name}`,
+    `SELECT Password FROM Police_Officer WHERE Police_id=${User_name}`,
     (err, results) => {
       if (err) {
         return res.send(err);
