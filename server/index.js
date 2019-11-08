@@ -7,7 +7,7 @@ const app = express();
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Password@123",
+  password: "qwer123QWER@",
   database: "db3",
   multipleStatements: true,
   insecureAuth: true
@@ -95,7 +95,6 @@ app.get("/register", (req, res) => {
         
         return res.send(err);
       } else {
-        console.log(res.json(results));
         
         return res.json(results);
       }
