@@ -7,7 +7,7 @@ const app = express();
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Password@123",
+  password: "qwer123QWER@",
   database: "db3",
   multipleStatements: true,
   insecureAuth: true
@@ -85,16 +85,25 @@ app.get("/complaint1", (req, res) => {
   );
 });
 
-app.get("/new", (req, res) => {
-  const {} = req.query;
-  connection.query(`select * from criminal`, (err, results) => {
-    if (err) {
-      return res.send(err);
-    } else {
-      return res.json(results);
+app.get("/register", (req, res) => {
+  const {username,name,password } = req.query;
+  connection.query(
+    `insert into Police_Officer values ("${username}" , "${password}" , "${name}")`,
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        
+        return res.send(err);
+      } else {
+        console.log(res.json(results));
+        
+        return res.json(results);
+      }
     }
-  });
+  );
 });
+
+
 
 app.listen(4000, () => {
   console.log("Server up!!");
