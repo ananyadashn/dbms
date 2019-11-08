@@ -25,7 +25,7 @@
     <head>
       <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
-
+<!-- Link the js file to the html 
     <p>
       <i>
         The Crime Records Management System specifically looks into the <br />
@@ -38,24 +38,65 @@
         crime depend on what quality of information it can derive from<br />
         its existing records and how fast it can have access to it.
       </i>
-    </p>
+    </p> -->
+   <br> <p><i>To register an FIR,Click on the link below:</i></p>
 
-    <p2><a href="complaint1.html"> Complaint Registration Link </a> </p2>
-
+    <p2><a href="complaint1.html" style="color: #ffffff"> Complaint Registration Link </a> 
+    <style>
+  a:link,
+      a:visited {
+        background-color:black;
+        color: white;
+        padding: 15px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+    
+      a:hover,
+      a:active {
+        background-color: red;
+      }
+    </style>
+    </p2>
+    <br>
+    <br>
+    <br>
+<p3><i>For Officers:</i></p3>
+<br>
+<br>
     <div class="login-box">
       <input
+      
+       style="float:left; width:150px; height:50px; background-color: black; font-size:x-large; color:white"
         type="submit"
         value="Login"
         id="button1"
         onclick="window.location.href = 'login.html'"
       />
-      <input
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p4>
+        <i>
+          If you are a New Officer:
+        </i>
+      </p4>
+    <br>
+      <br>
+      
+      <input 
+       style="float:left;width:150px; height:50px; background-color: black; font-size:x-large; color: white;"
         type="submit"
         value="Register"
         id="button2"
         onclick="window.location.href = 'register.html'"
       />
     </div>
+  
 
     <!-- Link the js file to the html -->
     <script src="app.js"></script>
