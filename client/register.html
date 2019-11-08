@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <body background="law2.jpg"></body>
 <head>
 
  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -20,7 +21,7 @@
                     <div class="card">
                         <div class="card-header">Register</div>
                         <div class="card-body">
-                            <form name="my-form" id="register-form">
+                            <form name="my-form" id="register-form0">
 
 
                                <div class="form-group row">
@@ -47,7 +48,7 @@
                                
 
                                  <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary" id="register-submit-button">
+                                        <button type="submit" class="btn btn-primary">
                                         Register
                                         </button>
                                     </div>
@@ -70,20 +71,25 @@
   
 
 <script>
-const regButton = document.getElementById("register-submit-button");
-regButton.addEventListener("click", e => {
+const regButton = document.getElementById("register-form0");
+regButton.addEventListener("submit", e => {
   e.preventDefault();
+  console.log(res);
   var username = document.getElementById("username");
+  console.log(res);
   var password = document.getElementById("password");
+  console.log(res);
   var name = document.getElementById("name");
+  console.log(res);
   if (username.value == "" || password.value == "" || name.value == "") {
     alert("No blank values allowed");
+    console.log(res);
   } else {
     // Send the reuqest to the server thorugh "/user"
     // with query parameter User_name which contains
     // what the user has entered.
     fetch(
-      `http://localhost:4000/register?username=${username.value}&name=${name.value}&password=${password.value}`
+      `http://localhost:4000/register?&username=${username.value}&name=${name.value}&password=${password.value}`
     )
       .then(res => res.json())
       .then(res => {
@@ -94,7 +100,7 @@ regButton.addEventListener("click", e => {
         // by the user
         console.log(res);
         if (res.affectedRows === 1) {
-          alert("successful Registered");
+          alert("Successfully Registered");
           window.location.href="./login.html"
         }
       })
