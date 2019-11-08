@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Criminal information</title>
+    
     <script type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="criminal.css" />
   </head>
+  
+  <input style="float: right; width: 100px; height: 50px; background-color: black; font-size:x-large ;color: white;"
+    type="submit" value="Home" id="button4" onclick="window.location.href = 'Crime.html'" /><br>
+  <h style="font-size: 50px;color:white">Complaints:</h>
+  <body>
+  
+    <body onload="javascript:hideTable()">
+      <input type="submit" value="Complaints List" id="button1" onClick='javascript:showTable();' value='show' />
+      <input type="button" value="Add New Complaint" onclick="window.location.href='complaint1.html';" id="button2" /><br>
+  <br>
+  <br>
+  
+  <br>
+  <br><br><br><br><br><br><br><br><br>
+  <h style="font-size: 50px;color:white">Criminal information:</h>
   <body>
       <body onload="javascript:hideTable()">
+    <input type="submit" value="Criminal List" id="button3" onClick='javascript:showTable();' value='show' />
+    <input type="submit" value="No of Criminals in jail" id="button4" /><br>
     
-    <input type="submit" value="Criminal List" id="button1" onClick='javascript:showTable();' value='show' />
-    <input type="submit" value="No of Criminals in jail" id="button3" />
-    <input type="submit" value="home" id="button4" onclick="window.location.href = 'Crime.html'" />
 
     <div id = 'mytable1'>
 
@@ -18,41 +33,52 @@
   </body>
   <style>
     #button1 {
-      padding: 10px 0;
+      padding: 15px 10;
       background-color: white;
-      font-size: 20px;
-      border-radius: 10px;
-      margin: 20px;
+      font-size: 25px;
+      margin: 30px;
+      border-radius: 100px;
     }
     #button2 {
-      padding: 10px 0;
+      padding: 15px 10;
       background-color: white;
-      font-size: 20px;
-      margin: 20px;
-      border-radius: 10px;
+      font-size: 25px;
+      margin: 30px;
+      border-radius: 100px;
     }
     #button3 {
-      padding: 10px 0;
+      padding: 15px 10;
       background-color: white;
-      font-size: 20px;
-      margin: 20px;
-      border-radius: 10px;
+      font-size: 25px;
+      margin: 30px;
+      border-radius: 100px;
     }
-
+    #button4 {
+      padding: 15px 10;
+      background-color: white;
+      font-size: 25px;
+      margin: 30px;
+      border-radius: 100px;
+    }
+    
     #mytable1{
       color: aliceblue;
     }
+#mytable2{
+      color: aliceblue;
+    }
+
+
     body {
-      background-image: url("law2.jpg");
+      background-image: url("law.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       height: auto;
-      
-    }
+      }
   </style>
   
     <script>
-        const registerForm = document.getElementById("button1");
+        const registerForm = document.getElementById("button3");
     registerForm.addEventListener("click", e => {
       e.preventDefault();
              
@@ -79,7 +105,34 @@
             function hideTable(){
             document.getElementById('mytable').style.visibility = "hidden";
             }
-    </script>
+            
+
+           /*const registerForm = document.getElementById("button1");
+              registerForm.addEventListener("click", e => {
+                e.preventDefault();
+
+                fetch(`http://localhost:4000/new1?`)
+                  .then(function (resp) {
+                    return resp.json();
+                  })
+                  .then(function (data) {
+                    let output = "<table  border=1 ><tr><th>Complaint_No</th></tr>";
+                    for (let i in data) {
+                      output += "<tr><td>" + data[i].Complaint_id;
+                    }
+                    document.getElementById('mytable2').innerHTML = output;
+
+                  });
+
+                output += "</th></tr></table>";
+                document.getElementById('mytable2').innerHTML = output;
+                document.getElementById('mytable2').style.visibility = "visible";
+
+              });
+              function hideTable() {
+                document.getElementById('mytable').style.visibility = "hidden";
+              } */
+    </script> 
     
     </body>
     </html>

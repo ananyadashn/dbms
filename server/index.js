@@ -72,6 +72,20 @@ app.get("/new", (req, res) => {
   );
 });
 
+app.get("/new1", (req, res) => {
+  const { } = req.query;
+  connection.query(
+    `SELECT Complaint_id,Status FROM Complaint`,
+    (err, results) => {
+      if (err) {
+        return res.send(err);
+      } else {
+        return res.json(results);
+      }
+    }
+  );
+});
+
 /*app.get("/complaint", (req, res) => {
   const { fname, email, pno, padd, addno } = req.query;
   connection.query(
