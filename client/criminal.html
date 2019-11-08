@@ -8,7 +8,6 @@
       <body onload="javascript:hideTable()">
     
     <input type="submit" value="Criminal List" id="button1" onClick='javascript:showTable();' value='show' />
-    <input type="submit" value="Prosecution Verdict" id="button2" />
     <input type="submit" value="No of Criminals in jail" id="button3" />
     <input type="submit" value="home" id="button4" onclick="window.location.href = 'Crime.html'" />
 
@@ -64,9 +63,9 @@
                 })
                 .then(function(data)
                 {
-                    let output = "<table  border=1 ><tr><th>name</th><th>Complaintno</th><tr>";
+                    let output = "<table  border=1 ><tr><th>Aadhar no</th><tr>";
                     for(let i in data){
-                        output+= "<tr><td>"+ data[i].name+"</td><td>"+data[i].complaintno+"</td></tr>";
+                        output+= "<tr><td>"+ data[i].Criminal_Aadhar_Number;
                     }
                     document.getElementById('mytable1').innerHTML = output;
                     

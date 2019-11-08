@@ -58,6 +58,20 @@ app.get("/user", (req, res) => {
   );
 });
 
+app.get("/new", (req, res) => {
+  const { } = req.query;
+  connection.query(
+    `SELECT Criminal_Aadhar_Number FROM Crime`,
+    (err, results) => {
+      if (err) {
+        return res.send(err);
+      } else {
+        return res.json(results);
+      }
+    }
+  );
+});
+
 /*app.get("/complaint", (req, res) => {
   const { fname, email, pno, padd, addno } = req.query;
   connection.query(
@@ -95,6 +109,7 @@ app.get("/register", (req, res) => {
         
         return res.send(err);
       } else {
+
         
         return res.json(results);
       }
