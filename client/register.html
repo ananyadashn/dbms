@@ -95,6 +95,7 @@ regButton.addEventListener("click", e => {
         console.log(res);
         if (res.affectedRows === 1) {
           alert("successful Registered");
+          window.location.href="./login.html"
         }
       })
       .catch(err => {
