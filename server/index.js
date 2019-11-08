@@ -58,7 +58,7 @@ app.get("/user", (req, res) => {
   );
 });
 
-app.get("/complaint", (req, res) => {
+/*app.get("/complaint", (req, res) => {
   const { fname, email, pno, padd, addno } = req.query;
   connection.query(
     `insert into Citizen values("${fname}" , "${pno}" , "${email}" , "${padd}" , "${addno}")`,
@@ -70,11 +70,11 @@ app.get("/complaint", (req, res) => {
       }
     }
   );
-});
+});*/
 app.get("/complaint1", (req, res) => {
-  const { date, time, statno, n_o_c, susnm, susdes, loc } = req.query;
+  const { date, time, station, susnm, susdes, loc, n_o_c, a_no } = req.query;
   connection.query(
-    `insert into Crime values ("${date}" , "${time}" , "${statno}" , "${n_o_c}" , "${susnm}" , "${susdes}" , "${loc}")`,
+    `insert into Complaint(Date_Time , Suspect_Name , Suspect_Desc , Station_id , Crime_Location , Nature_of_Crime , Complainee_Aadhar_No ) values ("${date} ${time}" , "${susnm}" , "${susdes}" , "${station}" , "${loc}" , "${n_o_c}" , "${a_no}" )`,
     (err, results) => {
       if (err) {
         return res.send(err);
