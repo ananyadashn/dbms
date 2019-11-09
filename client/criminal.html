@@ -13,7 +13,8 @@
   
     <body onload="javascript:hideTable()">
       <input type="submit" value="Complaints List" id="button1" onClick='javascript:showTable();' value='show' />
-      <input type="button" value="Add New Complaint" onclick="window.location.href='complaint1.html';" id="button2" /><br>
+      <input type="button" value="Add New Complaint" onclick="window.location.href='complaint1.html';" id="button2" />
+  <input type="button" value="Edit Complaint" onclick="window.location.href='edit.html';" id="button3" /><br>
   <br>
   <br>
   
@@ -22,8 +23,8 @@
   <h style="font-size: 50px;color:white">Criminal information:</h>
   <body>
       <body onload="javascript:hideTable()">
-    <input type="submit" value="Criminal List" id="button3" onClick='javascript:showTable();' value='show' />
-    <input type="submit" value="No of Criminals in jail" id="button4" onClick='javascript:showTable();' value='show' /><br>
+    <input type="submit" value="Criminal List" id="button4" onClick='javascript:showTable();' value='show' />
+    <input type="submit" value="No of Criminals in jail" id="button5" onClick='javascript:showTable();' value='show' /><br>
     
 
     <div id = 'mytable1'>
@@ -66,6 +67,13 @@
       margin: 30px;
       border-radius: 100px;
     }
+    #button5 {
+      padding: 15px 10;
+      background-color: white;
+      font-size: 25px;
+      margin: 30px;
+      border-radius: 100px;
+    }
     
     #mytable1{
       color: aliceblue;
@@ -84,6 +92,33 @@
   </style>
   
     <script>
+
+  const but1 = document.getElementById("button1");
+  but1.addEventListener("click", e => {
+    e.preventDefault();
+
+    fetch(`http://localhost:4000/new1?`)
+      .then(function (resp) {
+        return resp.json();
+      })
+      .then(function (data) {
+        let output = "<table  border=1 ><tr><th>Complaint_No</th><th>Status</th></tr>";
+        for (let i in data) {
+          output += "<tr><td>" + data[i].Complaint_id + "</td><td>" + data[i].Status + "</th></tr>";
+        }
+        output += "</table>";
+        document.getElementById('mytable1').innerHTML = output;
+
+      });
+
+    //output += "</th></tr></table>";
+
+    document.getElementById('mytable1').style.visibility = "visible";
+
+  });
+
+
+
         const registerForm = document.getElementById("button3");
     registerForm.addEventListener("click", e => {
       e.preventDefault();
@@ -113,29 +148,7 @@
             }
             
 
-           const but1 = document.getElementById("button1");
-              but1.addEventListener("click", e => {
-                e.preventDefault();
-
-                fetch(`http://localhost:4000/new1?`)
-                  .then(function (resp) {
-                    return resp.json();
-                  })
-                  .then(function (data) {
-                    let output = "<table  border=1 ><tr><th>Complaint_No</th><th>Status</th></tr>";
-                    for (let i in data) {
-                      output += "<tr><td>" + data[i].Complaint_id+"</td><td>"+data[i].Status+"</th></tr>";
-                    }
-                    output += "</table>";
-                    document.getElementById('mytable1').innerHTML = output;
-                    
-                  });
-
-                //output += "</th></tr></table>";
-                
-                document.getElementById('mytable1').style.visibility = "visible";
-
-              });
+           
 
               //const but4 = document.getElementById("button4");
     /*but4.addEventListener("click", e => {

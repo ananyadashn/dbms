@@ -7,7 +7,7 @@ const app = express();
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "qwer123QWER@",
+  password: "Password@123",
   database: "db3",
   multipleStatements: true,
   insecureAuth: true
@@ -130,6 +130,26 @@ app.get("/reg1", (req, res) => {
     }
   );
 });
+
+
+app.get("/reg2", (req, res) => {
+  const { compid, status } = req.query;
+  connection.query(
+    `update Complaint set Status="${status}" where Complaint_id=${compid}`,
+    (err, results) => {
+      if (err) {
+        console.log(err);
+
+        return res.send(err);
+      } else {
+
+
+        return res.json(results);
+      }
+    }
+  );
+});
+
 
 
 app.get("/nocrim", (req, res) => {
