@@ -7,7 +7,7 @@ const app = express();
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Password@123",
+  password: "qwer123QWER@",
   database: "db3",
   multipleStatements: true,
   insecureAuth: true
@@ -121,6 +121,24 @@ app.get("/reg1", (req, res) => {
       if (err) {
         console.log(err);
         
+        return res.send(err);
+      } else {
+
+        
+        return res.json(results);
+      }
+    }
+  );
+});
+
+
+app.get("/nocrim", (req, res) => {
+  const {} = req.query;
+  connection.query(
+    `select count(*) No_of_Criminals from Crime;`,
+    (err, results) => {
+      if (err) {
+              
         return res.send(err);
       } else {
 

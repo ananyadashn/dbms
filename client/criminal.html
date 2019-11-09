@@ -23,13 +23,19 @@
   <body>
       <body onload="javascript:hideTable()">
     <input type="submit" value="Criminal List" id="button3" onClick='javascript:showTable();' value='show' />
-    <input type="submit" value="No of Criminals in jail" id="button4" /><br>
+    <input type="submit" value="No of Criminals in jail" id="button4" onClick='javascript:showTable();' value='show' /><br>
     
 
     <div id = 'mytable1'>
 
       </div>
-      
+      <div id = 'mytable2'>
+
+      </div>
+
+      <div id = 'mytable3'>
+
+      </div>
   </body>
   <style>
     #button1 {
@@ -103,12 +109,12 @@
     
         });
             function hideTable(){
-            document.getElementById('mytable').style.visibility = "hidden";
+            document.getElementById('mytable1').style.visibility = "hidden";
             }
             
 
-           /*const registerForm = document.getElementById("button1");
-              registerForm.addEventListener("click", e => {
+           const but1 = document.getElementById("button1");
+              but1.addEventListener("click", e => {
                 e.preventDefault();
 
                 fetch(`http://localhost:4000/new1?`)
@@ -116,22 +122,73 @@
                     return resp.json();
                   })
                   .then(function (data) {
-                    let output = "<table  border=1 ><tr><th>Complaint_No</th></tr>";
+                    let output = "<table  border=1 ><tr><th>Complaint_No</th><th>Status</th></tr>";
                     for (let i in data) {
-                      output += "<tr><td>" + data[i].Complaint_id;
+                      output += "<tr><td>" + data[i].Complaint_id+"</td><td>"+data[i].Status+"</th></tr>";
                     }
-                    document.getElementById('mytable2').innerHTML = output;
-
+                    output += "</table>";
+                    document.getElementById('mytable1').innerHTML = output;
+                    
                   });
 
-                output += "</th></tr></table>";
-                document.getElementById('mytable2').innerHTML = output;
-                document.getElementById('mytable2').style.visibility = "visible";
+                //output += "</th></tr></table>";
+                
+                document.getElementById('mytable1').style.visibility = "visible";
 
               });
-              function hideTable() {
-                document.getElementById('mytable').style.visibility = "hidden";
-              } */
+
+              //const but4 = document.getElementById("button4");
+    /*but4.addEventListener("click", e => {
+      e.preventDefault();
+             
+            fetch(`http://localhost:4000/nocrim?`)
+                .then(function(resp) 
+                {
+                    return resp.json();
+                })
+                .then(function(data)
+                {
+                    //let output = "<table  border=1 ><tr><th>No. of criminals</th><tr>";
+                    
+                        //output+= "<tr><td>"+ data[0].No_of_Criminals+"</td></tr>";
+                let output = data[0].No_of_Criminals;
+                    //output+="</table>";
+                    document.getElementById('mytable1').innerHTML = output;
+                                        
+                });
+               
+                //output+="</th></tr></table>";
+                //document.getElementById('mytable1').innerHTML = output;
+                document.getElementById('mytable1').style.visibility = "visible";
+    
+        });*/
+
+        const but4 = document.getElementById("button4");
+              but4.addEventListener("click", e => {
+                e.preventDefault();
+
+                fetch(`http://localhost:4000/nocrim`)
+                  .then(function (resp) {
+                    return resp.json();
+                  })
+                  .then(function (data) {
+                    let output = "<table  border=1 ><tr><th>No of criminals</th></tr>";
+                    for (let i in data) {
+                      output += "<tr><td>" + data[i].No_of_Criminals+"</th></tr>";
+                    }
+                    output += "</table>";
+                    document.getElementById('mytable1').innerHTML = output;
+                    
+                  });
+
+                //output += "</th></tr></table>";
+                
+                document.getElementById('mytable1').style.visibility = "visible";
+
+              });
+
+
+          
     </script> 
     
     </body>
