@@ -20,10 +20,10 @@
   
   <br>
   <br><br><br><br><br><br><br><br><br>
-  <h style="font-size: 50px;color:white">Criminal information:</h>
+  <h style="font-size: 50px;color:white">Crime Information:</h>
   <body>
       <body onload="javascript:hideTable()">
-    <input type="submit" value="Criminal List" id="button4" onClick='javascript:showTable();' value='show' />
+    <input type="submit" value="Crime List" id="button4" onClick='javascript:showTable();' value='show' />
     <input type="submit" value="No of Criminals in jail" id="button5" onClick='javascript:showTable();' value='show' /><br>
     
 
@@ -102,9 +102,9 @@
         return resp.json();
       })
       .then(function (data) {
-        let output = "<table  border=1 ><tr><th>Complaint_No</th><th>Status</th></tr>";
+        let output = "<table  border=1 ><tr><th>Complaint_No</th><th>DateandTime</th><th>Suspect_Name</th><th>Suspect_Desc</th><th>Station_id</th><th>Status</th><th>Crime_Location</th><th>Nature_of_Crime</th><th>Complainee_Aadhar_No</th></tr>";
         for (let i in data) {
-          output += "<tr><td>" + data[i].Complaint_id + "</td><td>" + data[i].Status + "</th></tr>";
+          output += "<tr><td>" + data[i].Complaint_id + "</td><td>" + data[i].Date_Time + "</td><td>" + data[i].Suspect_Name + "</td><td>" + data[i].Suspect_Desc + "</td><td>" + data[i].Station_id + "</td><td>" + data[i].Status + "</td><td>" + data[i].Crime_Location + "</td><td>" + data[i].Nature_of_Crime + "</td><td>" + data[i].Complainee_Aadhar_No + "</th></tr>";
         }
         output += "</table>";
         document.getElementById('mytable1').innerHTML = output;
