@@ -23,7 +23,7 @@
   <h style="font-size: 50px;color:white">Crime Information:</h>
   <body>
       <body onload="javascript:hideTable()">
-    <input type="submit" value="Crime List" id="button4" onClick='javascript:showTable();' value='show' />
+    <input type="submit" value="Crime List" id="button82" onClick='javascript:showTable();' value='show' />
     <input type="submit" value="No of Criminals in jail" id="button5" onClick='javascript:showTable();' value='show' /><br>
     
 
@@ -119,7 +119,7 @@
 
 
 
-        const registerForm = document.getElementById("button3");
+        const registerForm = document.getElementById("button82");
     registerForm.addEventListener("click", e => {
       e.preventDefault();
              
@@ -130,9 +130,9 @@
                 })
                 .then(function(data)
                 {
-                    let output = "<table  border=1 ><tr><th>Aadhar no</th><tr>";
+                    let output = "<table  border=1 ><tr><th>Complaint_No</th><th>DateandTime</th><th>Suspect_Name</th><th>Suspect_Desc</th><th>Station_id</th><th>Status</th><th>Crime_Location</th><th>Nature_of_Crime</th></tr>";
                     for(let i in data){
-                        output+= "<tr><td>"+ data[i].Criminal_Aadhar_Number;
+                      output += "<tr><td>" + data[i].Complaint_id + "</td><td>" + data[i].Date_Time + "</td><td>" + data[i].Suspect_Name + "</td><td>" + data[i].Suspect_Desc + "</td><td>" + data[i].Station_id + "</td><td>" + data[i].status + "</td><td>" + data[i].Crime_Location + "</td><td>" + data[i].Nature_of_Crime + "</td></tr>";
                     }
                     document.getElementById('mytable1').innerHTML = output;
                     
@@ -150,33 +150,8 @@
 
            
 
-              //const but4 = document.getElementById("button4");
-    /*but4.addEventListener("click", e => {
-      e.preventDefault();
-             
-            fetch(`http://localhost:4000/nocrim?`)
-                .then(function(resp) 
-                {
-                    return resp.json();
-                })
-                .then(function(data)
-                {
-                    //let output = "<table  border=1 ><tr><th>No. of criminals</th><tr>";
-                    
-                        //output+= "<tr><td>"+ data[0].No_of_Criminals+"</td></tr>";
-                let output = data[0].No_of_Criminals;
-                    //output+="</table>";
-                    document.getElementById('mytable1').innerHTML = output;
-                                        
-                });
-               
-                //output+="</th></tr></table>";
-                //document.getElementById('mytable1').innerHTML = output;
-                document.getElementById('mytable1').style.visibility = "visible";
-    
-        });*/
-
-        const but4 = document.getElementById("button4");
+              
+        const but4 = document.getElementById("button5");
               but4.addEventListener("click", e => {
                 e.preventDefault();
 

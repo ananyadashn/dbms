@@ -7,7 +7,7 @@ const app = express();
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Password@123",
+  password: "qwer123QWER@",
   database: "db3",
   multipleStatements: true,
   insecureAuth: true
@@ -61,7 +61,7 @@ app.get("/user", (req, res) => {
 app.get("/new", (req, res) => {
   const { } = req.query;
   connection.query(
-    `SELECT Criminal_Aadhar_Number FROM Crime`,
+    `SELECT * FROM Crime`,
     (err, results) => {
       if (err) {
         return res.send(err);
@@ -75,7 +75,7 @@ app.get("/new", (req, res) => {
 app.get("/new1", (req, res) => {
   const { } = req.query;
   connection.query(
-    `SELECT Complaint_id,Status FROM Complaint`,
+    `SELECT * FROM Complaint`,
     (err, results) => {
       if (err) {
         return res.send(err);
