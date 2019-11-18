@@ -116,7 +116,8 @@ app.get("/complaint1", (req, res) => {
 app.get("/reg1", (req, res) => {
   const {policeid,password,name} = req.query;
   connection.query(
-    `insert into Police_Officer(Police_id , Password , Police_Name ) values ("${policeid}" , "${password}" , "${name}")`,
+    `insert intnodemon index.js
+  Police_Officer(Police_id , Password , Police_Name ) values ("${policeid}" , "${password}" , "${name}")`,
     (err, results) => {
       if (err) {
         console.log(err);
