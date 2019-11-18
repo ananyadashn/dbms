@@ -59,31 +59,25 @@ app.get("/user", (req, res) => {
 });
 
 app.get("/new", (req, res) => {
-  const { } = req.query;
-  connection.query(
-    `SELECT * FROM Crime`,
-    (err, results) => {
-      if (err) {
-        return res.send(err);
-      } else {
-        return res.json(results);
-      }
+  const {} = req.query;
+  connection.query(`SELECT * FROM Crime`, (err, results) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.json(results);
     }
-  );
+  });
 });
 
 app.get("/new1", (req, res) => {
-  const { } = req.query;
-  connection.query(
-    `SELECT * FROM Complaint`,
-    (err, results) => {
-      if (err) {
-        return res.send(err);
-      } else {
-        return res.json(results);
-      }
+  const {} = req.query;
+  connection.query(`SELECT * FROM Complaint`, (err, results) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.json(results);
     }
-  );
+  });
 });
 
 /*app.get("/complaint", (req, res) => {
@@ -102,7 +96,7 @@ app.get("/new1", (req, res) => {
 app.get("/complaint1", (req, res) => {
   const { date, time, station, susnm, susdes, loc, n_o_c, a_no } = req.query;
   connection.query(
-    `insert into Complaint(Date_Time , Suspect_Name , Suspect_Desc , Station_id , Crime_Location , Nature_of_Crime , Complainee_Aadhar_No ) values ("${date} ${time}" , "${susnm}" , "${susdes}" , "${station}" , "${loc}" , "${n_o_c}" , "${a_no}" )`,
+    `insert into Complaint(Suspect_Name , Suspect_Desc , Station_id , Crime_Location , Nature_of_Crime , Complainee_Aadhar_No ) values ("${susnm}" , "${susdes}" , "${station}" , "${loc}" , "${n_o_c}" , "${a_no}" )`,
     (err, results) => {
       if (err) {
         return res.send(err);
@@ -114,24 +108,21 @@ app.get("/complaint1", (req, res) => {
 });
 
 app.get("/reg1", (req, res) => {
-  const {policeid,password,name} = req.query;
+  const { policeid, password, name } = req.query;
   connection.query(
     `insert intnodemon index.js
   Police_Officer(Police_id , Password , Police_Name ) values ("${policeid}" , "${password}" , "${name}")`,
     (err, results) => {
       if (err) {
         console.log(err);
-        
+
         return res.send(err);
       } else {
-
-        
         return res.json(results);
       }
     }
   );
 });
-
 
 app.get("/reg2", (req, res) => {
   const { compid, status } = req.query;
@@ -143,15 +134,11 @@ app.get("/reg2", (req, res) => {
 
         return res.send(err);
       } else {
-
-
         return res.json(results);
       }
     }
   );
 });
-
-
 
 app.get("/nocrim", (req, res) => {
   const {} = req.query;
@@ -159,18 +146,13 @@ app.get("/nocrim", (req, res) => {
     `select count(*) No_of_Criminals from Crime;`,
     (err, results) => {
       if (err) {
-              
         return res.send(err);
       } else {
-
-        
         return res.json(results);
       }
     }
   );
 });
-
-
 
 app.listen(4000, () => {
   console.log("Server up!!");

@@ -1,8 +1,8 @@
 const registerForm = document.getElementById("register-form1");
 registerForm.addEventListener("submit", e => {
   e.preventDefault();
-  var date = document.getElementById("date");
-  var time = document.getElementById("time");
+  //var date = document.getElementById("date");
+  //var time = document.getElementById("time");
   var susnm = document.getElementById("susnm");
   var susdes = document.getElementById("susdes");
   var station = document.getElementById("select-station");
@@ -11,8 +11,8 @@ registerForm.addEventListener("submit", e => {
   var a_no = document.getElementById("a_no");
 
   if (
-    date.value == "" ||
-    time.value == "" ||
+    //date.value == "" ||
+    //time.value == "" ||
     station.options[station.selectedIndex].value == "" ||
     susnm.value == "" ||
     susdes.value == "" ||
@@ -26,7 +26,7 @@ registerForm.addEventListener("submit", e => {
     // with query parameter User_name which contains
     // what the user has entered.
     fetch(
-      `http://localhost:4000/complaint1?&date=${date.value}&time=${time.value}&station=${station.value}&susnm=${susnm.value}&susdes=${susdes.value}&loc=${loc.value}&n_o_c=${n_o_c.value}&a_no=${a_no.value}`
+      `http://localhost:4000/complaint1?&station=${station.value}&susnm=${susnm.value}&susdes=${susdes.value}&loc=${loc.value}&n_o_c=${n_o_c.value}&a_no=${a_no.value}`
     )
       .then(res => res.json())
       .then(res => {
