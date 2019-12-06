@@ -180,6 +180,30 @@ LOCK TABLES `Station` WRITE;
 INSERT INTO `Station` VALUES ('st01','Ashoknagar Police Station','Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560025','080-22942076','bcp001'),('st02','Banasawadi Police Station','HRBR Layout 2nd Block, HRBR Layout, Kalyan Nagar, Bengaluru, Karnataka 560043','080-22942552','bcp002'),('st03','Banashankari Police Station','9th Main Road Thyagaraj Nagar, Banashankari Stage II, Banashankari, Bengaluru, Karnataka 560070','080-22942564','bcp003'),('st04','Byappanahalli Police Station','Near, Gopalan Signature Mall, Swamy Vivekananda Road, Rahat Bagh, Nagavarapalya, Bennigana Halli, Bengaluru, Karnataka 560093','080-22942545','bcp004'),('st05','Whitefield Police Station','Whitefield Main Rd, beside Prestige White Meadows, Sathya Sai Layout, Whitefield, Bengaluru, Karnataka 560066','080-22943472','bcp005'),('st06','Mahadevapura Police Station','Whitefield Main Rd, Beside Singayyanapalya Bus Stop, Singayyanapalya, Krishnarajapura, Bengaluru, Karnataka 560048','080-28510782','bcp006'),('st07','Frazer Town Police Station','Lazar Rd, Near East Railway Station, Pulikeshi Nagar, Bengaluru, Karnataka 560005','080-22942565','bcp007'),('st08','Cubbon Park Police Station','Ground floor, VV Towers, cubbon park traffic police station, Ambedkar Veedhi, Bengaluru, Karnataka 560001','080-22942675','bcp008'),('st09','Bellandur Police Station','37, Sarjapur Main Rd, Amblipura, PWD Quarters, 1st Sector, Bellandur, Bengaluru, Karnataka 560103','080-25747771','bcp009'),('st10','R T Nagar Police Station','Dinnur Main Rd, P&T Colony, RT Nagar, Bengaluru, Karnataka 560032','080-22942538','bcp010');
 /*!40000 ALTER TABLE `Station` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'db3'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `calc` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calc`()
+begin
+update Citizen 
+set Age=year(curdate())-year(D_O_B);
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -190,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-06 17:04:35
+-- Dump completed on 2019-12-06 19:12:57
