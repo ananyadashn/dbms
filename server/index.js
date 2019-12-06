@@ -154,6 +154,20 @@ app.get("/nocrim", (req, res) => {
   );
 });
 
+app.get("/sp", (req, res) => {
+  const { } = req.query;
+  connection.query(
+    `call calc();`,
+    (err, results) => {
+      if (err) {
+        return res.send(err);
+      } else {
+        return res.json(results);
+      }
+    }
+  );
+});
+
 app.listen(4000, () => {
   console.log("Server up!!");
 });
